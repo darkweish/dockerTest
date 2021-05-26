@@ -1,0 +1,19 @@
+version: "3"
+services:
+    web:
+        build: server/
+        ports:
+            - "3001:3000"
+        volumes:
+            - ./server:/app
+        depends_on:
+            - database
+    database:
+        image: mysql
+        ports:
+            - 11818:3306
+        environment:
+            - MYSQL_ROOT_PASSWORD=accrobat
+            - MYSQL_USER=accrobat
+            - MYSQL_PASSWORD=accrobat
+            - MYSQL_DATABASE=resizer
