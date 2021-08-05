@@ -3,17 +3,19 @@ services:
     web:
         build: server/
         ports:
-            - "3001:3000"
-        volumes:
-            - ./server:/app
+            - "4000:3000"
+        command: npm start
         depends_on:
-            - database
-    database:
+          - db
+
+    db:
         image: mysql
-        ports:
-            - 11818:3306
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
         environment:
-            - MYSQL_ROOT_PASSWORD=accrobat
-            - MYSQL_USER=accrobat
-            - MYSQL_PASSWORD=accrobat
-            - MYSQL_DATABASE=resizer
+            - MYSQL_ROOT_PASSWORD=secret
+            - MYSQL_DATABASE=nono
+            - MYSQL_USER=yoann
+            - MYSQL_PASSWORD=secret
+
+
