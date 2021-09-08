@@ -3,9 +3,10 @@ services:
   web:
     build: server/
     ports:
-      - "4000:3000"
+      - "3000:3000"
     depends_on:
       - "db"
+    restart: on-failure
 
   db:
     image: mysql

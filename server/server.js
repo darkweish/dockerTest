@@ -7,7 +7,7 @@ const sequelize = new Sequelize('nono', 'yoann', 'secret', {
   host: 'db',
   dialect: 'mysql'
 });
-/*sequelize.authenticate()
+sequelize.authenticate()
 .then(()=>console.log('connection succefull'))
 .catch(err => console.log(err))
 
@@ -30,7 +30,7 @@ app.get('/connected', (req,res)=>{
 	sequelize.authenticate()
 .then(()=>res.send('connection succefull'))
 .catch(err => res.send(err))
-});*/
+});
 
 app.get('/',(req,res)=>{
 	res.send("Hello world")
