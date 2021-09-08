@@ -4,6 +4,7 @@ COPY ./ /app
 
 WORKDIR /app
 
-RUN npm install
+RUN npm install && chmod +x wait-for-it.sh && chmod +x wait-for-mysql.sh
 
-CMD npm start
+CMD ["./wait-for-it.sh", "db:3306", "--", "npm", "start"]
+
