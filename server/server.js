@@ -8,7 +8,8 @@ const sequelize = new Sequelize('nono', 'yoann', 'secret', {
   dialect: 'mysql'
 });
 sequelize.authenticate()
-.then(()=>console.log('connection succefull'))
+.then(()=>{console.log('connection succefull'); return sequelize.sync({alter: true})})
+.then(()=> console.log("all tables sync"))
 .catch(err => console.log(err))
 
 const User = sequelize.define('User', {
@@ -24,7 +25,6 @@ const User = sequelize.define('User', {
 }, {
   // Other model options go here
 });
-sequelize.sync({alter : true}).then(()=> console.log("all table sync"));
 
 app.get('/connected', (req,res)=>{
 	sequelize.authenticate()
