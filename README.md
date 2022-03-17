@@ -8,6 +8,12 @@ docker
 |update|**await** await User.update({ lastName: "Doe" }, { where: { lastName: null } });|updaye User SET lastname='Doe' WHERE LASTNAME IS NULL|
 |delete|**avait** await User.destroy({ where: { firstName: "Jane" } }); | DELETE FROM user WHERE firstname = 'Jane'|
 
+# Insertion d'enregistrement
+
+Lorsqu'on veut ajouter une valeur a une base de données nous avons deux façons de le faire : 
+- `Create` : permet d'ajouter qu'un seul element
+- `BulkCreate` : permet d'ajouter plusieurs elements en même temps, en lui donnant un tableau en paramètre
+
 # HasOne
 ```js
   Foo.hasOne(Bar);
