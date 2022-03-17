@@ -1,5 +1,3 @@
-docker
-
 # Sequelize 
 
 |query|example|SQL|
